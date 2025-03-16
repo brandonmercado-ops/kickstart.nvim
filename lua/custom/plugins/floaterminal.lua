@@ -1,3 +1,4 @@
+-- To execute lua file after making changes, type "%lua" into terminal
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
 
 local state = {
@@ -38,10 +39,6 @@ local function create_floating_window(opts)
     style = 'minimal', -- Minimal UI for the floating window
   }
 
-  -- -- Merge user options with default options
-  -- for k, v in pairs(opts) do
-  --   float_opts[k] = v
-  -- end
   local win = vim.api.nvim_open_win(buf, true, float_opts)
 
   -- Open the floating window
@@ -50,7 +47,7 @@ local function create_floating_window(opts)
 end
 
 state.floating = create_floating_window()
-print(vim.inspect(state.floating))
+-- print(vim.inspect(state.floating))
 
 local toggle_terminal = function()
   if not vim.api.nvim_win_is_valid(state.floating.win) then
@@ -65,6 +62,4 @@ local toggle_terminal = function()
 end
 
 vim.api.nvim_create_user_command('Floaterminal', toggle_terminal, {})
-vim.keymap.set({ 'n', 't' }, '<space>tt', toggle_terminal)
-
--- To execute lua file after making changes, type "%lua" into terminal
+vim.keymap.set({ 'n', 't' }, '<leader>tt', toggle_terminal)
