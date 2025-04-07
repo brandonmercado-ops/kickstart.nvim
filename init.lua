@@ -296,6 +296,22 @@ require('lazy').setup({
       border = 'curved',
     },
   },
+
+  {
+    'vyfor/cord.nvim',
+    build = ':Cord update',
+    -- opts = {}
+  },
+
+  {
+    'cjohnson74/scales.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('scales').setup()
+    end,
+  },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
