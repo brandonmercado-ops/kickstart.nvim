@@ -312,6 +312,25 @@ require('lazy').setup({
       require('scales').setup()
     end,
   },
+
+  -- COLOR SCHEME PLUGIN
+  {
+    'zenbones-theme/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = 'rktjmp/lush.nvim',
+    lazy = false,
+    priority = 1000,
+    -- you can set set configuration options here
+    config = function()
+      vim.o.termguicolors = true
+      vim.o.background = 'light'
+      vim.g.zenbones_darken_comments = 45
+      vim.cmd.colorscheme 'seoulbones'
+    end,
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -762,6 +781,9 @@ require('lazy').setup({
             },
           },
         },
+
+        -- Installing Zig ZLS LSP
+        zls = {},
       }
 
       -- Ensure the servers and tools above are installed
