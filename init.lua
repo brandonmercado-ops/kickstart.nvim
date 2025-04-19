@@ -314,7 +314,7 @@ require('lazy').setup({
   },
 
   -- COLOR SCHEME PLUGIN
-  {
+  --[[   {
     'zenbones-theme/zenbones.nvim',
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
@@ -325,9 +325,15 @@ require('lazy').setup({
     -- you can set set configuration options here
     config = function()
       vim.o.termguicolors = true
-      vim.o.background = 'light'
+      vim.o.background = 'dark'
       vim.g.zenbones_darken_comments = 45
       vim.cmd.colorscheme 'seoulbones'
+    end,
+  }, ]]
+  {
+    'EdenEast/nightfox.nvim',
+    config = function()
+      vim.cmd.colorscheme 'carbonfox'
     end,
   },
 
