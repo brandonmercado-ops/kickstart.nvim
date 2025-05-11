@@ -333,6 +333,12 @@ require('lazy').setup({
   {
     'EdenEast/nightfox.nvim',
     config = function()
+      -- vim.cmd.colorscheme 'carbonfox'
+      require('nightfox').setup {
+        options = {
+          transparent = true, -- this makes background transparent
+        },
+      }
       vim.cmd.colorscheme 'carbonfox'
     end,
   },
@@ -1012,7 +1018,16 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {
+      signs = false,
+    },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
